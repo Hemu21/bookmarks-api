@@ -1,0 +1,5 @@
+tags:
+  - Bookmarks
+responses:
+  '200':
+    description: all bookmarks

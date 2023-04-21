@@ -1,0 +1,16 @@
+paths:
+  /bookmarks/list/{short_url} 
+tags:
+  - Bookmarks
+parameters:
+  - name: short_url
+    in: path
+    description: short url in your bookmarks
+    required: true
+    schema:
+      type: string
+responses:
+  '308':
+    description: url is redirected
+  '404':
+    description: url not found in bookmarks

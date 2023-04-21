@@ -1,0 +1,26 @@
+paths:
+  /bookmarks/list/url/{short_url} 
+tags:
+  - Bookmarks
+parameters:
+  - name: short_url
+    in: path
+    description: short url in your bookmarks
+    required: true
+    schema:
+      type: string
+  - name: url
+    in: body
+    description: updated url
+    required: true
+    type: string
+    properties:
+      url:
+        type: "string"
+        example: "https://www.google.com"
+
+responses:
+  '200':
+    description: url is updated from your bookmarks
+  '404':
+    description: url not found in bookmarks
