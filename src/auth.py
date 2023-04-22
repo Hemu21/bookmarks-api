@@ -9,7 +9,7 @@ auth=Blueprint('auth',__name__,url_prefix='/api/v1/auth')
 
 
 @auth.post('/register')
-@swag_from(r'C:\Users\HEMU\Desktop\Bookmark API\src\docs\auth\register.yml')
+@swag_from(r'src\docs\auth\register.yml')
 def register1():
     name=request.json.get('name')
     email=request.json.get('email')
