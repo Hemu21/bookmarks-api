@@ -16,7 +16,7 @@ parameters:
       properties:
         email:
           type: "email"
-          example: "crycetruly@gmail.com"
+          example: "user@gmail.com"
         name:
           type: "username"
           example: "usernamex"
