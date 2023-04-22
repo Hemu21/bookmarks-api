@@ -48,7 +48,7 @@ def show(short_url):
     webbrowser.open(book.url)
     book.views+=1
     db.session.commit()
-    return jsonify({'message':'url_redirected'}),200 
+    return redirect(book.url),200 
 
 @book.put('/list/url/<string:short_url>')
 @jwt_required()
