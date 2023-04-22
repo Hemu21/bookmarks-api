@@ -9,7 +9,7 @@ auth=Blueprint('auth',__name__,url_prefix='/api/v1/auth')
 
 
 @auth.post('/register')
-@swag_from(r'src\docs\auth\register.yml')
+@swag_from('https://github.com/Hemu21/bookmarks-api/tree/master/src/docs/auth/register.yml')
 def register1():
     name=request.json.get('name')
     email=request.json.get('email')
@@ -41,7 +41,7 @@ def register1():
     return jsonify({'meaasege':'User Created','user':{'username':name,'email':email},'access token':access}),201
 
 @auth.post('/login')
-@swag_from(r'C:\Users\HEMU\Desktop\Bookmark API\src\docs\auth\login.yml')
+@swag_from('https://github.com/Hemu21/bookmarks-api/tree/master/src/docs/auth/login.yml')
 def login():
     email=request.json.get('email')
     password=request.json.get('password')
