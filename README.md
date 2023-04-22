@@ -15,6 +15,13 @@ after installing all requirements to run app
 flask run
 ```
 
+## Test api
+You can test this api. link is 
+
+```
+https://bookmarks-api-41cx.onrender.com
+```
+
 
 ## Note
 
