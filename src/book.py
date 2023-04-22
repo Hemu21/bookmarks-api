@@ -24,7 +24,7 @@ def url_short():
 
 @book.get('/list')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\get_all.yml')
+@swag_from(os.getenv(r'src\docs\bookmark\get_all.yml')
 def book_list():
     user_id=get_jwt_identity()
     user=User.query.filter_by(id=user_id).first()
@@ -40,7 +40,7 @@ def book_list():
 
 @book.get('/list/<string:short_url>')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\get_short_url.yml')
+@swag_from(r'src\docs\bookmark\get_short_url.yml')
 def show(short_url):
     book=bookmark.query.filter_by(short_url=short_url).first()
     if not book:
@@ -52,7 +52,7 @@ def show(short_url):
 
 @book.put('/list/url/<string:short_url>')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\put_url.yml')
+@swag_from(r'src\docs\bookmark\put_url.yml')
 def update_url(short_url):
     book=bookmark.query.filter_by(short_url=short_url).first()
     if not book:
@@ -69,7 +69,7 @@ def update_url(short_url):
 
 @book.put('/list/short_url/<string:short_url>')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\put_short_url.yml')
+@swag_from(r'src\docs\bookmark\put_short_url.yml')
 def update_short_url(short_url):
     book=bookmark.query.filter_by(short_url=short_url).first()
     if not book:
@@ -82,7 +82,7 @@ def update_short_url(short_url):
 
 @book.post('/add')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\url.yml')
+@swag_from(r'src\docs\url.yml')
 def book_add():
     user_id=get_jwt_identity()
     url=request.json.get('url')
@@ -104,7 +104,7 @@ def book_add():
 
 @book.delete('/delete')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\delete_all.yml')
+@swag_from(r'src\docs\bookmark\delete_all.yml')
 def book_delete():
     user_id=get_jwt_identity()
     bookmk=bookmark.query.filter_by(user_id=user_id).all()
@@ -117,7 +117,7 @@ def book_delete():
 
 @book.delete('/delete/<string:short_url>')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+r'src\docs\bookmark\delete_short_url.yml')
+@swag_from(r'src\docs\bookmark\delete_short_url.yml')
 def book_delete1(short_url):
     book=bookmark.query.filter_by(short_url=short_url).first()
     if not book:
@@ -128,7 +128,7 @@ def book_delete1(short_url):
 
 @book.get('/list/stat')
 @jwt_required()
-@swag_from(os.getenv('bookmark_folder_location')+ r'src\docs\bookmark\stat.yml')
+@swag_from(r'src\docs\bookmark\stat.yml')
 def stats():
     user_id=get_jwt_identity()
     bookmk=bookmark.query.filter_by(user_id=user_id).all()
